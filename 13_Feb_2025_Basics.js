@@ -106,6 +106,68 @@ console.log(typeof veryLargeInteger);  // Output: "bigint"
 console.log(veryLargeInteger + 1n);   // You can perform operations with other BigInts
 // console.log(veryLargeInteger + 1); // Error: Cannot mix BigInt and other types
 
+/*
+* Object Data Type
+* 
+*/
+
+//Object
+let personObject = {
+  name: "John",
+  age: 30,
+  isStudent: false
+};
+console.log(typeof personObject); // Output: "object"
+
+//arrays
+let numberArray = [1, 2, 3];
+console.log(typeof numberArray); // Output: "object"
+console.log(Array.isArray(numberArray));   // Output: true
+
+
+//Functions
+function sayHello(){
+  console.log("Hello");
+}
+console.log(typeof sayHello); // Output: "function"
+
+/*
+ *Dynamic Typing in JavaScript 
+ * 
+*/
+
+let dynamicNumber = 4;
+console.log(typeof dynamicNumber); // Output: "number"
+dynamicNumber = "Hello";
+console.log(typeof dynamicNumber);   // Output: "string"
+dynamicNumber = true;
+console.log(typeof dynamicNumber);   // Output: "boolean"
+
+
+
+
+
+
+
+/*
+ * Basic operations
+ * 
+ */
+
+// imutable primitives:
+let agePrimitive = 30;
+console.log(agePrimitive.toExponential()); // it won't change the primitive
+console.log(agePrimitive);  // Output: 30
+
+// to change the primitive, you need to assign a new value to it:
+let agePrimitive2 = 25;
+agePrimitive2 += 1; // this is an example of a compound assignment operator
+console.log(agePrimitive2);   // Output: 26
+
+
+
+
+
 
 
 
