@@ -44,7 +44,11 @@ console.log(c); /* it will work as 'var' escapes the block and is available even
  * JavaScript Data Types
 */
 
-// Primitive data types: numbers
+/*
+  * Primitive Data Types (Simple Data Types):
+*/
+
+// numbers
 let age = 30; // Integer
 let price = 99.99; // Floating-point
 let largeNumber = 123e5; // Exponential notation (12300000)
@@ -59,5 +63,51 @@ console.log(typeof infitinity);
 console.log(typeof negativeInfinity);
 console.log(typeof notANumber);
 
-// Primitive data types: strings
+// strings
+let firstName = "John"; // Double quotes
+let lastName = 'Doe'; // Single quotes
+let fullName = `John Doe` // Backticks
+
+console.log(typeof firstName);
+console.log(typeof lastName);
+console.log(typeof fullName);
+
+// Boolean
+let isAdult = true;
+let isChild = false;
+
+console.log(typeof isAdult);
+console.log(typeof isChild);
+
+// Null - represents intentional absence of any object value
+
+let person = null; // person is absent  
+
+console.log(typeof person); // Output 'object'
+
+// Undefined - represents a variable that has been declared but not assigned a value
+// let age;
+// console.log(typeof age);
+
+
+// Symbol (ES6 - ECMAScript 2015)
+let uniqueID = Symbol("description"); // Create a symbol with an optional description
+let anotherID = Symbol("description");
+
+console.log(uniqueID === anotherID); // Output: false (Symbols are always unique)
+console.log(typeof uniqueID);        // Output: "symbol"
+
+// BigInt (ES2020 - ECMAScript 2020): a new primitive data type that can be used to store large integers
+
+let veryLargeInteger = 100000000000008n; // 'n' at the end makes it a BigInt literal
+let anotherLargeInt = BigInt(9007199254740992); // Using the BigInt constructor
+
+console.log(typeof veryLargeInteger);  // Output: "bigint"
+console.log(veryLargeInteger + 1n);   // You can perform operations with other BigInts
+// console.log(veryLargeInteger + 1); // Error: Cannot mix BigInt and other types
+
+
+
+
+
 
