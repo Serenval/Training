@@ -129,6 +129,27 @@ console.log(now);
 
 console.log(then.getFullYear());
 
+/*
+* Workind with strings
+*/
+
+let sentence = "Hello World";
+console.log(sentence.charAt(0)); //first character
+console.log(sentence.charAt(sentence.length - 1)); //last character
+console.log(sentence.substring(0, 3));
+console.log(sentence.slice(-3)); // getting the last three characters
+console.log(sentence.indexOf("l")); // position of first letter
+console.log(sentence.split(" ")); // split the sentence into an array of words
+console.log(sentence.replace("Hello", "Goodbye")); // replace a word
+console.log(sentence.toUpperCase()); // convert to uppercase
+console.log(sentence.toLowerCase()); // convert to lowercase
+console.log(sentence.trim());  // remove whitespace from the beginning and end of string
+console.log(sentence.length); // length of sentence
+console.log(sentence.startsWith("Hello")); // returns true if starts with Hello
+console.log(sentence.endsWith("World")); // returns true if ends with World
+console.log(sentence.includes("World"));  // returns true if includes World
+console.log(sentence.repeat(3));  // repeats the sentence three times
+
 
 
 
