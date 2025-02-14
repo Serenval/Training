@@ -118,6 +118,18 @@ console.log(random); // returns a random number between 0 (inclusive) and 1 (exc
 let random1 = Math.floor(Math.random() * 5 + 1); //returns a random number between 1 (inclusive) and 6 (exclusive).
 console.log(random1);
 
+/* 
+* Dates and Times
+*/
+
+let then = new Date('2015-03-25');
+let now = new Date();
+console.log(then);
+console.log(now);
+
+console.log(then.getFullYear());
+
+
 
 
 
