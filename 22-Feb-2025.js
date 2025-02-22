@@ -75,3 +75,9 @@ for(let y = 0; y < 10; y++){
     }
     console.log(y);
 }
+
+
+/*
+* Working with objects
+*/
+
