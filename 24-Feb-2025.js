@@ -4,12 +4,12 @@
 
 // Simple Object with String and Number Properties
 
-let person = {
+let Person1 = {
     name: "Alice",
     age: 30
 };
 
-console.log(person);
+console.log(Person1);
 
 let book = {
     title: "JavaScript Book",
@@ -42,10 +42,10 @@ console.log(book);
 
 // Adding a Method to an Object
 
-person.printName = function(){
+Person1.printName = function(){
     return this.name.toUpperCase();
 };
-console.log(person.printName());
+console.log(Person1.printName());
 
 //Object Constructor Functions
 
