@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation Example</title>
+</head>
+<body>
+  <div id="list-container">
+    <!-- List will be added here by JavaScript -->
+  </div>
+  <script>
+    window.onload = () => {
+
+      // Creating a new element
+      const heading = document.createElement('h1');
+      let headingText = 'Dynamic List';
+      heading.innerText = headingText;
+
+      // Getting a parent node and inserting before 'list-container' div
+      let pNode = document.getElementById('list-container');
+      pNode.parentNode.insertBefore(heading, pNode);
+    };
+    
+    let myList = document.createElement('ul');
+    myList.classList.add('dynamic-list');
+
+    let items = ['Item 1', 'Item 2', 'Item 3'];
+    items.forEach(itemText => {
+      let itemList = document.createElement('li');
+      itemList.textContent = itemText;
+      myList.appendChild(itemList);
+    });
+
+    let listContainer = document.getElementById('list-container');
+    listContainer.appendChild(myList);
+  </script>
+</body>
+</html>
