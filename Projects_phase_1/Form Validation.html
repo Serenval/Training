@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+</head>
+<body>
+  <div id="form-container">
+    <form name="MainForm" onsubmit="return ValidateForm()" method="post">
+      Name: <input type="text" name="fname">
+      <input type="submit" value="Submit">
+    </form>
+    <span id="status"></span>
+  </div>
+  <script>
+    function ValidateForm() {
+      let fname = document.forms['MainForm']['fname'].value;
+      let statusMessage = document.getElementById('status');
+      if( fname == "") {
+        statusMessage.textContent = "The name should be filled";
+        return false;
+      } else {
+        statusMessage.textContent = "Success";
+        return true;
+      }
+    }
+  </script>
+</body>
+</html>

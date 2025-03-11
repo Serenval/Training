@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events</title>
+</head>
+<body>
+  <div id="container">
+    <span onclick="this.innerHTML = 'Nice!'">Click this</span>
+    <br />
+    <span onclick="ChangeText(this)">Change the text inside</span>
+    <br />
+    <span id="simpleText">Hello</span>
+    <br />
+    <span> Click the button to change background color </span>
+    <button id="buttonColorChanger">Change Color</button> 
+  </div>
+  <script>
+    function ChangeText(element) {
+      element.textContent = "Very nice!";
+    }
+    function GetText() {
+      alert("Super very nice");
+    }
+    document.getElementById('simpleText').onclick = GetText;
+    document.getElementById('buttonColorChanger').addEventListener("click", function() {
+      let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      document.body.style.backgroundColor = randomColor;
+    });
+  </script>
+</body>
+</html>

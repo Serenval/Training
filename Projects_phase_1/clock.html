@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clock</title>
+</head>
+<body>
+  <div id="clock-body">
+  </div>
+  <script>
+    function displayTime() {
+      let clockElement = document.getElementById('clock-body');
+      let currentDate = new Date();
+      clockElement.textContent = currentDate.toLocaleTimeString();
+      setTimeout(displayTime, 1000);
+    }
+    window.onload = displayTime;
+  </script>
+</body>
+</html>
