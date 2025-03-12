@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple To-do list</title>
+</head>
+<body>
+  <div id="container">
+    <input type="text" id="taskInput" placeholder="Enter your task">
+    <button id="addTaskBtn">Add Task</button>
+    <ul id="taskList"></ul>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const taskInput = document.getElementById('taskInput');
+      const addTaskBtn = document.getElementById('addTaskBtn');
+      const taskList = document.getElementById('taskList');
+
+      function addNewTask() {
+        let taskText = taskInput.value;
+        if( taskText == "") {
+          return;
+        }
+        addTaskToDOM(taskText);
+        taskInput.value = "";
+      }
+
+      function addTaskToDOM(text) {
+        console.log(text);
+      }
+
+
+      /**
+       * Event listeners
+       */ 
+      addTaskBtn.addEventListener("click", addNewTask);
+    });
+
+  </script>
+</body>
+</html>
