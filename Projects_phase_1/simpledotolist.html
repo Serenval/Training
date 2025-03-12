@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>Simple To-do list</title>
+  <style>
+    li.complete {
+      text-decoration: line-through;
+    }
+  </style>
 </head>
 <body>
   <div id="container">
@@ -25,7 +30,22 @@
       }
 
       function addTaskToDOM(text) {
-        console.log(text);
+        let itemList = document.createElement('li');
+        itemList.textContent = text;
+
+        itemList.addEventListener("click", function(e) {
+          itemList.classList.toggle("complete");
+        });
+
+        let deleteButton = document.createElement('button');
+        deleteButton.textContent = 'X';
+        deleteButton.addEventListener("click", function(e) {
+          e.stopPropagation();
+          itemList.remove();
+        });
+        itemList.appendChild(deleteButton);
+
+        taskList.appendChild(itemList);
       }
 
 
@@ -33,6 +53,11 @@
        * Event listeners
        */ 
       addTaskBtn.addEventListener("click", addNewTask);
+      taskInput.addEventListener("keypress", function(e) {
+        if (e.key == "Enter") {
+          addNewTask();
+        }
+      });
     });
 
   </script>
