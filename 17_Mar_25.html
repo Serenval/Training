@@ -26,6 +26,20 @@
       }
     myTable.appendChild(myTableBody);
     myBody.appendChild(myTable);
+
+    function random(number) {
+      return Math.floor(Math.random() * number);
     }
+    function backgroundChange() {
+      rgbValue = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+      return rgbValue;
+    }
+    const tableContainer = document.getElementsByTagName("table")[0];
+    tableContainer.addEventListener("click", function(event) {
+      event.target.style.backgroundColor = backgroundChange();
+    });
+    }
+  
+
   </script>
 </html>
