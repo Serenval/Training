@@ -1,0 +1,31 @@
+<!-- Creating a table with cells -->
+
+<html lang="eng">
+  <body onload="start()"></body>
+  <script>
+    function start() {
+      const myBody = document.getElementsByTagName("body")[0];
+      const myTable = document.createElement("table");
+      const myTableBody = document.createElement("tbody");
+
+      for (let row = 0; row < 10; row++) {
+        const myCurrentRow = document.createElement("tr");
+        for (let col = 0; col < 10; col++) {
+          const myCurrentCell = document.createElement("td");
+          const currentText = document.createTextNode(`cell is :${row}${col}`);
+          myCurrentCell.appendChild(currentText);
+          myCurrentRow.appendChild(myCurrentCell);
+
+          if (col == 0) {
+            myCurrentCell.style.background = "rgb(255 0 0)";
+          } else {
+            myCurrentCell.style.background = "yellow";
+          }
+        }
+        myTableBody.appendChild(myCurrentRow);
+      }
+    myTable.appendChild(myTableBody);
+    myBody.appendChild(myTable);
+    }
+  </script>
+</html>
