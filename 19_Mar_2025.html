@@ -1,0 +1,26 @@
+<html lang="eng">
+  <button id="shakeBtn" onclick="shake(this, function() { alert('oh')}, 3, 1000)">Shake it</button>
+  <script>
+    function shake(e, oncomplete, distance, time) {
+      let originalStyle = e.style.cssText;
+      e.style.position = "relative";
+      let start = (new Date()).getTime();
+      animate();
+      function animate() {
+        let now = (new Date()).getTime();
+        let elapsed = now - start;
+        let fraction = elapsed / time;
+        if (fraction < 1) {
+          let x = distance * Math.sin(fraction * 2 * Math.PI);
+          e.style.left = x + "px";
+          
+          setTimeout(animate, Math.min(25, time - elapsed));
+        } else {
+          e.style.cssText = originalStyle;
+          oncomplete(e);
+        }
+      }
+    }
+
+  </script>
+</html>
