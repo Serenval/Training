@@ -1,5 +1,8 @@
 <html lang="eng">
   <button id="shakeBtn" onclick="shake(this, function() { alert('oh')}, 3, 1000)">Shake it</button>
+  <button id="fadeOutBtn" onclick="fadeOut(this)">Fade Out</button>
+  <p id="typingText"></p>
+  <button onclick="typeText()">Start Typing</button>
   <script>
     function shake(e, oncomplete, distance, time) {
       let originalStyle = e.style.cssText;
@@ -20,6 +23,36 @@
           oncomplete(e);
         }
       }
+    }
+
+    function typeText() {
+      let text = "Hello, welcome to JavaScript";
+      let index = 0;
+      let element = document.getElementById("typingText");
+
+      function type() {
+        if (index < text.length) {
+          element.textContent += text[index];
+          index++;
+          setTimeout(type, 100);
+        }
+      }
+      element.textContent = "";
+      type();
+    }
+
+    function fadeOut(e) {
+      let opacity = 1;
+      function fade() {
+        if (opacity > 0) {
+          opacity -= 0.05;
+          e.style.opacity = opacity;
+          requestAnimationFrame(fade);
+        } else { 
+          e.style.display = "none";
+        }
+      }
+      fade();
     }
 
   </script>
