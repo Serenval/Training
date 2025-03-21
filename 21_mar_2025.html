@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag And Drop</title>
+  <style>
+    #draggableElement {
+      width: 140px;
+      height: 100px;
+      background-color: lightblue;
+      border: 1px solid blue;
+      padding: 10px;
+      text-align: center;
+      cursor: grab;
+    }
+    #informationContainer {
+      width: 200px;
+      height: 150px;
+      background-color: lightgray;
+      border: 2px dashed gray;
+      padding: 10px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #informationContainer.highlight {
+      background-color: lightgreen;
+      border: 2px dashed green;
+    }
+  </style>
+</head>
+<body>
+  <div id="draggableElement" draggable="true">Information</div>
+  <div id="informationContainer">Container</div>
+  <script>
+    const draggableElement = document.getElementById('draggableElement');
+    const informationContainer  = document.getElementById('informationContainer');
+
+    draggableElement.addEventListener("dragstart", function(event) {
+      console.log("Drag Start");
+      event.dataTransfer.setData("text/plain", event.target.textContent);
+    });
+
+    informationContainer.addEventListener("dragover", function(event) {
+      console.log('Preventing default behaviour to allow drop');
+      event.preventDefault();
+    });
+
+    informationContainer.addEventListener("dragenter", function(event) {
+      console.log("DragEnter");
+      informationContainer.classList.add('highlight');
+    });
+
+    informationContainer.addEventListener("dragleave", function(event) {
+      console.log("DragLeave");
+      informationContainer.classList.remove('highlight');
+    });
+    
+    informationContainer.addEventListener("drop", function(event) {
+      console.log("Drop");
+      event.preventDefault();
+      informationContainer.classList.remove('highlight');
+
+      const draggedInformation = event.dataTransfer.getData('text/plain');
+      informationContainer.textContent = draggedInformation;
+      draggableElement.textContent = "";
+      draggableElement.draggable = false;
+      draggableElement.style.cursor = 'pointer';
+    });
+
+  </script>
+</body>
+</html>
