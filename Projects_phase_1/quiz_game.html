@@ -2,13 +2,31 @@
 <head>
   <title>Quiz Game</title>
   <style>
+    body {
+      text-align: center;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      background-color: dodgerblue;
+      padding: 10px;
+    }
+    .option {
+      border: 1px solid black;
+      padding: 10px;
+      font-size: 30px;
+      text-align: center;
+    }
+    .option:hover {
+      background: grey;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <div id="quiz-container">
     <h2>Questions will apper here</h2>
     <div id="options">
-
     </div>
     <button id="next-question" onclick="nextQuestion()">Next</button>
     <h3>Score</h3>
