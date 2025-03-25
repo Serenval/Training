@@ -16,31 +16,42 @@
   </div>
   <script>
     const quizData = [
-      { question: "What is 4 + 4?", options: ["2", "6", "8"], answer: "4" },
+      { question: "What is 4 + 4?", options: ["2", "6", "8"], answer: "8" },
       { question: "What is the capical of Great Britan?", options: ["Kyiv", "London", "Paris"], answer: "London" },
       { question: "What is the largest planet?", options: ["Jupiter", "Mars", "Earth"], answer: "Jupiter" } 
     ];
 
     let currentQuestion = 0;
     let score = 0;
+    const optionsContainer = document.getElementById("options");
+    const nxtBtn = document.getElementById("next-question");
 
     function loadQuestion() {
       const quiz = quizData[currentQuestion];
       document.getElementsByTagName("H2")[0].innerText = quiz.question;
       
-      const optionsContainer = document.getElementById("options");
       optionsContainer.innerHTML = "";
 
       quiz.options.forEach(function(option) {
         let btn = document.createElement("button");
         btn.innerText = option;
         btn.className = "option";
+        btn.addEventListener("click", function () { 
+          checkAnswer(option); 
+        });
         optionsContainer.appendChild(btn);
       });
+      nxtBtn.style.display = "none";
     }
 
-    function checkAnswer() {
-
+    function checkAnswer(option) {
+      if (quizData[currentQuestion].answer == option) {
+        score += 1;
+      } else {
+        score += 0.1;
+      }
+      optionsContainer.innerHTML = "";
+      nxtBtn.style.display = "block";
     }
     function nextQuestion() {
     
