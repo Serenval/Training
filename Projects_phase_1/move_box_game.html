@@ -33,7 +33,7 @@
       const player = document.getElementById('player');
       const gameContainer = document.querySelector('.game-container');
 
-      let x, y = 180; // Starting position
+      let x = 180, y = 180; // Starting position
       const step = 20;
 
       document.addEventListener("keydown", function(event) {
@@ -59,7 +59,7 @@
           case "ArrowRight":
           case "d":
             if (x < gameContainer.clientWidth - player.clientWidth) {
-              x -= step;
+              x += step;
             }
             break;
         }
