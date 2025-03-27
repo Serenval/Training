@@ -21,6 +21,15 @@
         top: 180px;
         left: 180px;
       }
+      .object {
+        width: 40;
+        height: 40;
+        border: 1px solid black;
+        background: gray;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+      }
     </style>
   </head>
   <body>
@@ -28,45 +37,63 @@
     <p>Use arrows or WASD keys to move the box</p>
     <div class="game-container">
       <div id="player" class="player"></div>
+      <div id="object" class="object"></div>
     </div>
     <script>
       const player = document.getElementById('player');
       const gameContainer = document.querySelector('.game-container');
-
+      const gameObject = document.getElementById('object');
       let x = 180, y = 180; // Starting position
       const step = 20;
 
+      // Position game object
+      gameObject.style.left = 40 + "px";
+      gameObject.style.top = 40 + "px";
+
       document.addEventListener("keydown", function(event) {
+        isCollided = collisionDetection(gameObject, player);
         switch (event.key) {
           case "ArrowUp":
           case "w":
-            if (y > 0) {
+            if (y > 0 && !isCollided) {
               y -= step;
             }
             break;
           case "ArrowDown":
           case "s":
-            if (y < gameContainer.clientHeight - player.clientHeight) {
+            if (y < gameContainer.clientHeight - player.clientHeight && !isCollided) {
               y += step;
             }
             break;
           case "ArrowLeft":
           case "a":
-            if (x > 0) {
+            if (x > 0 && !isCollided) {
               x -= step;
             }
             break;
           case "ArrowRight":
           case "d":
-            if (x < gameContainer.clientWidth - player.clientWidth) {
+            if (x < gameContainer.clientWidth - player.clientWidth && !isCollided) {
               x += step;
             }
             break;
         }
+        console.log(`Collision: ${isCollided}`);
         player.style.left = x + "px";
         player.style.top = y + "px";
       });
 
+      function collisionDetection (o1, o2) {
+        if (
+          o1.style.left.slice(0, -2) < o2.style.left.slice(0, -2) + o2.clientWidth &&
+          o1.style.left.slice(0, -2) + o1.clientHeight > o2.style.left.slice(0, -2) &&
+          o1.style.top.slice(0, -2) < o2.style.top.slice(0, -2) + o2.clientHeight &&
+          o1.style.top.slice(0, -2) + o1.clientHeight > o2.clientHeight
+        ) {
+          return true;
+        }
+        return false;
+      }
     </script>
   </body>
 </html>
