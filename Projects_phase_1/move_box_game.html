@@ -8,9 +8,16 @@
   <body>
     <h2>Move The Box Game</h2>
     <p>Use arrows or WASD keys to move the box</p>
-    <div id="game-container">
+    <div class="game-container">
       <div id="player" class="player"></div>
     </div>
-    
+    <script>
+      const player = document.getElementById('player');
+      const gameContainer = document.querySelector('.game-container');
+
+      let x, y = 180; // Starting position
+      const step = 20;
+      
+    </script>
   </body>
 </html>
