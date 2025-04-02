@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Storage Testing</title>
+  </head>
+  <body>
+    <h1>Storage</h1>
+    <script>
+      /**
+       * Client - side storage
+       */
+      
+      // Cookies (HTTP Cookies)
+      
+      // Setting a cookie
+      function settingCookie() {
+        document.cookie = "username=John Doe; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/02_Apr_25.html";
+        
+        let allCookies = document.cookie;
+        console.log(allCookies);
+      }
+      window.onload = settingCookie();
+
+      // Web Storage API
+      localStorage.setItem('theme', 'dark');
+
+      let themePreference = localStorage.getItem('theme');
+
+      console.log(themePreference);
+
+      // Session-Based Storage
+
+      sessionStorage.setItem('currentPage', 'dashboard');
+      let currentPage = sessionStorage.getItem('currentPage');
+
+      console.log(currentPage);
+      sessionStorage.clear();
+      console.log(currentPage);
+
+      // IndexedDB
+      const request = indexedDB.open('myDatabase', 1);
+      request.onerror = (event) => {
+        console.error("Database error: ", event.target.errorCode);
+      }
+      
+      request.onsuccess = (event) => {
+        const db = even.target.result;
+        console.log("Database oppened");
+      }
+      
+    
+    </script>
+  </body>
+</html>
