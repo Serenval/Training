@@ -23,6 +23,33 @@
   <image src="image.png">
   <image src="img.jpg">
   <image src="photo.png">
+
+
+  <!-- Combinators allow you to select elements based on their relationship to other elements in the DOM tree. -->
+  <div class="container">
+    <p>Paragraph 1</p>
+    <section>
+      <p>Paragraph 2 (nested)</p>
+    </section>
+  </div>
+  <p>Paragraph 3 (outside)</p>
+
+  <ul id="parent-list">
+    <li>Direct Child 1</li>
+    <li>Direct Child 2
+      <ul>
+        <li>Nested Child</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Section Title</h2>
+  <p>First paragraph after title.</p>
+  <p>Second paragraph.</p>
+
+  <!-- General Sibling Combinator (~): Selects all elements that are siblings following another element (they must share the same parent). -->
+  <div>Some other element</div>
+  <p>Third paragraph after title.</p>
   <script>
     // document.querySelector(cssSelector): Returns the first element within the document (or within a specific parent element if called on an element) that matches the specified CSS selector string. If no match is found, it returns null.
     // document.querySelectorAll(cssSelector): Returns a static NodeList (an array-like collection) containing all elements within the document (or within a specific parent element) that match the specified CSS selector string. If no matches are found, it returns an empty NodeList.
@@ -42,11 +69,22 @@
     //Select by Attribute Value Starting With
     let secureLinks = document.querySelectorAll('a[href^="https"]');
     console.log(secureLinks);
-
+    
     //Select by Attribute Value Ending With
     let pngImages = document.querySelectorAll('img[src$=".png"]');
     console.log(pngImages);
 
+    let paragraphsInContainer = document.querySelectorAll('.container p');
+    console.log(paragraphsInContainer);
+
+    let directChilds = document.querySelectorAll('#parent-list > li');
+    console.log(directChilds);
+
+    let firstPAfterH2 = document.querySelector('h2 + p');
+    console.log(firstPAfterH2);
+
+    let allParagraphsAfterH2 = document.querySelectorAll('h2 ~ p');
+    console.log(allParagraphsAfterH2);
   </script>
 </body>
 </html>
