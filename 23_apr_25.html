@@ -81,6 +81,19 @@
   <input type="text" id="email" required>
   <button id="submitBtn" disabled>Submit</button>
 
+  <div id="main-content">
+    <article class="post featured">
+      <h2>Featured Post Title</h2>
+      <p>Content of the featured post...</p>
+      <a href="/read-more" class="read-link">Read More</a>
+    </article>
+    <article class="post">
+      <h2>Regular Post Title</h2>
+      <p>Content of a regular post...</p>
+      <a href="/read-regular" class="read-link">Read More</a>
+    </article>
+  </div>
+
   <script>
     // document.querySelector(cssSelector): Returns the first element within the document (or within a specific parent element if called on an element) that matches the specified CSS selector string. If no match is found, it returns null.
     // document.querySelectorAll(cssSelector): Returns a static NodeList (an array-like collection) containing all elements within the document (or within a specific parent element) that match the specified CSS selector string. If no matches are found, it returns an empty NodeList.
@@ -132,6 +145,14 @@
     console.log(checkedBox);
     console.log(disButton);
     console.log(requiredInputs);
+
+    // Select the "Read More" link only within the featured post inside #main-content
+    let featuredReadLink = document.querySelector('#main-content article.featured a.read-link');
+    console.log(featuredReadLink);
+
+    // Select all paragraphs inside articles that are NOT featured
+    let regularPostParagraphs = document.querySelectorAll('#main-content article:not(.featured) p');
+    console.log(regularPostParagraphs);
 
 
 
