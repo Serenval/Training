@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selecting Elements</title>
+</head>
+<body>
+  <h1>Selecting Elements (Advanced)</h1>
+  <button disabled>Cannot click</button>
+  <button>Click</button>
+
+  <input type="text" name="username">
+  <input type="password" name="password">
+  <input type="submit" value="Login">
+
+  <p class="info warning extra">Warning Text</p>
+  <p class="info important">Important text</p>
+
+  <a href="https://example.com">Sedure Link</a>
+  <a href="http://example.com">Link</a>
+
+  <image src="image.png">
+  <image src="img.jpg">
+  <image src="photo.png">
+  <script>
+    // document.querySelector(cssSelector): Returns the first element within the document (or within a specific parent element if called on an element) that matches the specified CSS selector string. If no match is found, it returns null.
+    // document.querySelectorAll(cssSelector): Returns a static NodeList (an array-like collection) containing all elements within the document (or within a specific parent element) that match the specified CSS selector string. If no matches are found, it returns an empty NodeList.
+    
+    //Select by attribute presence
+    let disabledButton = document.querySelector('button[disabled]');
+    console.log(disabledButton);
+
+    let passwordInput = document.querySelector('input[type="password"]');
+    let submitButton = document.querySelector('input[type="submit"]');
+    console.log(passwordInput);
+    console.log(submitButton);
+
+    let warningParagraph = document.querySelector('p[class~="warning"]');
+    console.log(warningParagraph);
+
+    //Select by Attribute Value Starting With
+    let secureLinks = document.querySelectorAll('a[href^="https"]');
+    console.log(secureLinks);
+
+    //Select by Attribute Value Ending With
+    let pngImages = document.querySelectorAll('img[src$=".png"]');
+    console.log(pngImages);
+
+  </script>
+</body>
+</html>
