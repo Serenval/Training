@@ -68,6 +68,19 @@
     <li>Item 3</li>
     <li>Item 4</li>
   </ul>
+
+  <!-- Input Pseudo-classes (Useful for forms):
+  :checked: Selects checkbox or radio button elements that are checked.
+  :disabled: Selects input elements that are disabled.
+  :enabled: Selects input elements that are enabled.
+  :required: Selects input elements that have the required attribute.
+  :optional: Selects input elements that do not have the required attribute.
+  :valid/:invalid: Selects input elements based on their constraint validation state. -->
+
+  <input type="checkbox" id="terms" checked>
+  <input type="text" id="email" required>
+  <button id="submitBtn" disabled>Submit</button>
+
   <script>
     // document.querySelector(cssSelector): Returns the first element within the document (or within a specific parent element if called on an element) that matches the specified CSS selector string. If no match is found, it returns null.
     // document.querySelectorAll(cssSelector): Returns a static NodeList (an array-like collection) containing all elements within the document (or within a specific parent element) that match the specified CSS selector string. If no matches are found, it returns an empty NodeList.
@@ -112,6 +125,15 @@
     console.log(firstItem);
     console.log(thirdItem);
     console.log(evenItems);
+
+    let checkedBox = document.querySelector('input:checked');
+    let disButton = document.querySelector('button:disabled');
+    let requiredInputs = document.querySelectorAll(':required');
+    console.log(checkedBox);
+    console.log(disButton);
+    console.log(requiredInputs);
+
+
 
   </script>
 </body>
