@@ -50,6 +50,24 @@
   <!-- General Sibling Combinator (~): Selects all elements that are siblings following another element (they must share the same parent). -->
   <div>Some other element</div>
   <p>Third paragraph after title.</p>
+
+
+  <!-- Positional Pseudo-classes:
+  :first-child: Selects an element that is the first child of its parent.
+  :last-child: Selects an element that is the last child of its parent.
+  :nth-child(n): Selects elements based on their position among siblings (e.g., :nth-child(2) selects the second child, :nth-child(odd) selects odd-numbered children, :nth-child(2n) selects even-numbered children).
+  :nth-last-child(n): Similar to :nth-child but counts from the end.
+  :nth-of-type(n): Selects elements based on their position among siblings of the same type.
+  :nth-last-of-type(n): Similar to :nth-of-type but counts from the end.
+  :only-child: Selects an element that is the only child of its parent.
+  :only-of-type: Selects an element that is the only one of its type among its siblings. -->
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+  </ul>
   <script>
     // document.querySelector(cssSelector): Returns the first element within the document (or within a specific parent element if called on an element) that matches the specified CSS selector string. If no match is found, it returns null.
     // document.querySelectorAll(cssSelector): Returns a static NodeList (an array-like collection) containing all elements within the document (or within a specific parent element) that match the specified CSS selector string. If no matches are found, it returns an empty NodeList.
@@ -85,6 +103,16 @@
 
     let allParagraphsAfterH2 = document.querySelectorAll('h2 ~ p');
     console.log(allParagraphsAfterH2);
+  </script>
+  <script>
+    let firstItem = document.querySelector('ul li:first-child');
+    let thirdItem = document.querySelector('ul li:nth-child(3)');
+    let evenItems = document.querySelectorAll('ul li:nth-child(even)');
+
+    console.log(firstItem);
+    console.log(thirdItem);
+    console.log(evenItems);
+
   </script>
 </body>
 </html>
